@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    width: 100%;
+    min-height: 10vh;
+    font-size: 14px;
+}
+img {
+    width: 100%;
+}
+.contenedor {
+    width: 100%;
+    padding: .5rem 1rem;
+}
+
+.nav {
+    background-color: #a400c4;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-form {
+    display: flex;
+    width: 200px;
+}
+
+.search-input-list-container {
+    width: 170px;
+    height: 30px;
+    transition: all .5s;
+}
+
+.search-input, .search-list, .search-content {
+    width: 100%;
+}
+.search-input {
+    height: 100%;
+    background-color: #682375;
+    color: white;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border: 1px solid #620075;
+    padding-left: .5rem;
+}
+
+.search-list {
+    display: block;
+    position: relative;
+    background-color: #fff;
+    list-style: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 0.5rem 0;
+    opacity: 0;
+}
+.search-list li {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    padding: 1rem 0;
+    cursor: default; 
+}
+.search-list li:hover {
+    background-color: #efefef;
+}
+.search-list p {
+    padding-right: .5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.search-list img {
+    width: auto;
+    height: 16px;
+    margin: 0 .5rem;
+}
+.search-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #CC00F5;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1px solid #620075;
+}
+
+.aside-btn {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 0;
+    gap: 9.6px;
+    cursor: pointer;
+}
+.aside-btn > div {
+    background-color: #fff;
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    transition: all .5s;
+    transform-origin: left;
+}
+.aside-btn:hover div:first-child {
+    width: 33px;
+    transform: rotate(45deg);
+}
+.aside-btn:hover div:nth-child(2) {
+    opacity: 0;
+}
+.aside-btn:hover div:last-child {
+    width: 33px;
+    transform: rotate(-45deg);
+}
