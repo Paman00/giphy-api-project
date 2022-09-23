@@ -6,13 +6,16 @@
 }
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
+    background-color: #eeeeee;
     width: 100%;
     min-height: 10vh;
     font-size: 14px;
 }
 img {
     width: 100%;
+}
+a{
+    text-decoration: none;
 }
 .contenedor {
     width: 100%;
@@ -45,7 +48,7 @@ img {
 .search-input {
     height: 100%;
     background-color: #682375;
-    color: white;
+    color:  #fff;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     border: 1px solid #620075;
@@ -120,4 +123,54 @@ img {
 .aside-btn:hover div:last-child {
     width: 33px;
     transform: rotate(-45deg);
+}
+
+.GIFS-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 10px;
+    height: 100%;
+}
+.GIF {
+    width: 290px;
+    height: auto;
+    display: grid;
+    grid-template: 40px 290px 30px / 1fr;
+    background-color: #682375;
+    border-radius: 1rem;
+    color: white;
+}
+.GIF a{
+    color: white;
+}
+.GIF-title-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.GIF-image-div {
+    background-color: white;
+}
+.GIF-user-div, .GIF-user-div > a, .GIF-user-div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.GIF-user-div img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+.GIF-user-div > a > img {
+    width: 23px;
+    height: 23px;
+
+}
+.GIF-user-div {
+    justify-content: space-between;
+    padding: .5rem;
+}
+.GIF-user-div {
+    justify-content: baseline;
 }
