@@ -17,7 +17,7 @@ img {
 a{
     text-decoration: none;
 }
-.contenedor {
+.container {
     width: 100%;
     padding: .5rem 1rem;
 }
@@ -128,7 +128,7 @@ a{
 .GIFS-container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 10px;
     height: 100%;
 }
@@ -150,7 +150,10 @@ a{
     justify-content: center;
 }
 .GIF-image-div {
-    background-color: white;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
 }
 .GIF-user-div, .GIF-user-div > a, .GIF-user-div > div {
     display: flex;
@@ -173,4 +176,11 @@ a{
 }
 .GIF-user-div {
     justify-content: baseline;
+}
+.GIF-user-div > div {
+    opacity: 0;
+    transition: ease-in-out 1s;
+}
+.GIF:hover .GIF-user-div > div {
+    opacity: 100;
 }
