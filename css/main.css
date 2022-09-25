@@ -136,7 +136,7 @@ a {
     row-gap: 30px;
     column-gap: 15px;
     height: 100%;
-    max-width: 1250px;
+    max-width: 1280px;
     margin: auto;
 }
 .GIF {
@@ -226,4 +226,39 @@ a {
     left: 0;
     z-index: 998;
     cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .nav {
+        height: 50px;
+    }
+    .GIFS-container {
+        padding-top: 2rem;
+    }
+    .ERROR {
+        text-align: center;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .nav {
+        height: 60px;
+    }
+    .GIF:hover {
+        transform: scale(1.05);
+    }
+}
+@media screen and (min-width: 1400px){
+    .nav {
+        height: 70px;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .nav {
+        height: 80px;
+    }
+}
+@media screen and (min-width: 3840px) {
+    .nav {
+        height: 90px;
+    }
 }
