@@ -24,13 +24,6 @@ const searchPreview = () => {
         li.append(img, a);
         listSearch.insertAdjacentElement("afterbegin", li);
     });
-
-    document.querySelectorAll(".element-search").forEach((element) => {
-        element.addEventListener("click", () => {
-            searchInput.value = element.lastChild.text;
-            newSearch();
-        });
-    });
 };
 const newSearch = (e) => {
     e ? e.preventDefault() : 0;
@@ -50,7 +43,7 @@ const newSearch = (e) => {
 
 const newGIFS = (data) => {
     data.map((gif) => {
-        let newGif = `<article class = \"GIF\">
+        let newGif = `<article class ="GIF">
             <div class="GIF-title-div">
                 <a href="${gif.url}">${gif.title}</a>
             </div>
@@ -59,7 +52,7 @@ const newGIFS = (data) => {
                     <img src="${gif.images.original.url}">
                 </a>
             </div>
-            <div class=\"GIF-user-div\">`;
+            <div class="GIF-user-div">`;
         if (gif.user) {
             newGif += `<a href="${gif.user.profile_url}" target="_blank">
                     <img src="${gif.user.avatar_url}" alt="user avatar">
@@ -84,17 +77,20 @@ const newGIFS = (data) => {
         document.querySelector("#main-section").innerHTML += newGif;
     });
 };
-const consumeGIFS = async (url) => {
-    try {
-        const response = await fetch(`${url}&offset=${offset}`);
-        offset += limit;
-        const { data } = await response.json();
-        return data;
-    } catch (e) {
-        console.log(e);
-    }
+const errorGIF = () => {
+    let newError = `<article class="ERROR">
+        <h2>Vaya!, parece que ha ocurrido un error</h2>
+        <p>Por favor recarga la pagina o, si es el caso, intenta con una nueva búsqueda</p>
+    </article>`;
+    document.querySelector("#main-section").innerHTML = newError;
 };
 
+const consumeGIFS = async (url) => {
+    const response = await fetch(`${url}&offset=${offset}`);
+    offset += limit;
+    const { data } = await response.json();
+    return data;
+};
 const inViewPort = ([e]) => {
     const { isIntersecting } = e;
     if (isIntersecting) {
@@ -105,11 +101,16 @@ const getObserver = (node) => {
     observer.observe(node);
 };
 const principalFunction = async () => {
-    const response = await consumeGIFS(URL);
-    newGIFS(response);
+    try {
+        const response = await consumeGIFS(URL);
+        newGIFS(response);
 
-    const lastImage = document.querySelector("#main-section").lastChild;
-    getObserver(lastImage);
+        const lastImage = document.querySelector("#main-section").lastChild;
+        getObserver(lastImage);
+    } catch (e) {
+        console.warn(`Error: ${e}`);
+        errorGIF();
+    }
 };
 
 const pageLoad = () => {
@@ -120,6 +121,12 @@ const pageLoad = () => {
     });
     searchInput.addEventListener("focus", () => {
         document.querySelector(".search-list").style.opacity = 100;
+        document.querySelectorAll(".element-search").forEach((element) => {
+            element.addEventListener("click", () => {
+                searchInput.value = element.lastChild.text;
+                newSearch();
+            });
+        });
     });
     searchInput.addEventListener("blur", () => {
         document.querySelector(".search-list").style.opacity = 0;

@@ -8,7 +8,7 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: #eeeeee;
     width: 100%;
-    min-height: 10vh;
+    min-height: 100vh;
     font-size: 14px;
 }
 img {
@@ -149,6 +149,9 @@ a {
     color: white;
     position: relative;
     transition: all 0.5s;
+}
+.ERROR {
+    margin: auto;
 }
 .GIF:hover {
     transform: scale(0.975);
