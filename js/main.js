@@ -1,16 +1,17 @@
 const apiKey = 'aFYcYWsKTrTkL7O0QC3DgGYRhlMecTQk';
-let limit = (Math.round(window.innerWidth / 300) * 5); limit > 50 ? limit = 50 : limit;
+let limit = (Math.round(window.innerWidth / 315) * 5); limit > 50 ? limit = 50 : limit;
 let offset = 0;
 let URL = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limit}`;
 
 const lastSearch = JSON.parse(localStorage.getItem('Last searches')) || [];
 
+const searchInput = document.querySelector("#input-search")
 const newGIFS = (data) => {
     data.map(gif => {
         let newGif = 
         `<article class = \"GIF\">
             <div class="GIF-title-div">
-                <p>${gif.title}</p>
+                <a href="${gif.url}">${gif.title}</a>
             </div>
             <div class="GIF-image-div">
                 <a href="${gif.url}">
@@ -44,12 +45,13 @@ const newGIFS = (data) => {
         </article>`;
         document.querySelector("#main-section").innerHTML += newGif;
     });
+    
 }
 const consumeGIFS = async (url) => {
     try {
         const response = await fetch (`${url}&offset=${offset}`);
+        offset += limit;
         const { data } = await response.json();
-        console.log(data);
         return data
     }
     catch(e) {
@@ -57,11 +59,26 @@ const consumeGIFS = async (url) => {
     }
 };
 
-const pageLoad = () => {
-    consumeGIFS(URL) 
-        .then(response => {
-            newGIFS(response)
-        });
+const inViewPort = ([e]) => {
+    console.log("q onda gente");
+    const {isIntersecting} = e;
+    if(isIntersecting) { 
+        principalFunction();
+    };
+}
+const getObserver = (node) => {
+    observer.observe(node);
+};
+const principalFunction = async () => {
+    const response = await consumeGIFS(URL);
+    newGIFS(response);
+
+    const lastImage = document.querySelector("#main-section").lastChild;
+    getObserver(lastImage);
 };
 
+const pageLoad = () => {
+    principalFunction();
+};
+const observer = new IntersectionObserver(inViewPort);
 window.addEventListener("load", pageLoad);
