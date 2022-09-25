@@ -64,15 +64,16 @@ a{
     border-bottom-right-radius: 5px;
     padding: 0.5rem 0;
     opacity: 0;
+    z-index: 999;
 }
-.search-list li {
+.element-search {
     display: flex;
     align-items: center;
     height: 20px;
     padding: 1rem 0;
     cursor: default; 
 }
-.search-list li:hover {
+.element-search:hover {
     background-color: #efefef;
 }
 .search-list p {
@@ -93,6 +94,7 @@ a{
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border: 1px solid #620075;
+    cursor: pointer;
 }
 
 .aside-btn {
@@ -129,8 +131,11 @@ a{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    gap: 10px;
+    row-gap: 30px;
+    column-gap: 15px; 
     height: 100%;
+    max-width: 1250px;
+    margin: auto;
 }
 .GIF {
     width: 290px;
@@ -140,20 +145,36 @@ a{
     background-color: #682375;
     border-radius: 1rem;
     color: white;
+    position: relative;
+    transition: all .5s;
+}
+.GIF:hover {
+    transform: scale(.975);
 }
 .GIF a{
     color: white;
 }
+.GIF-image-div a {
+    width: 100%;
+}
 .GIF-title-div {
+    padding: 0 .5rem;
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;  
+}
+.GIF-title-div a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .GIF-image-div {
     display: flex;
     align-items: center;
     overflow: hidden;
-    background-color: #fff;
+    background-color: #4d1159;
 }
 .GIF-user-div, .GIF-user-div > a, .GIF-user-div > div {
     display: flex;
@@ -168,7 +189,6 @@ a{
 .GIF-user-div > a > img {
     width: 23px;
     height: 23px;
-
 }
 .GIF-user-div {
     justify-content: space-between;
