@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,700&display=swap");
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     background-color: #eeeeee;
     width: 100%;
     min-height: 10vh;
@@ -14,12 +14,12 @@ body {
 img {
     width: 100%;
 }
-a{
+a {
     text-decoration: none;
 }
 .container {
     width: 100%;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
 }
 
 .nav {
@@ -39,20 +39,22 @@ a{
 .search-input-list-container {
     width: 170px;
     height: 30px;
-    transition: all .5s;
+    transition: all 0.5s;
 }
 
-.search-input, .search-list, .search-content {
+.search-input,
+.search-list,
+.search-content {
     width: 100%;
 }
 .search-input {
     height: 100%;
     background-color: #682375;
-    color:  #fff;
+    color: #fff;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     border: 1px solid #620075;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
 }
 
 .search-list {
@@ -71,13 +73,13 @@ a{
     align-items: center;
     height: 20px;
     padding: 1rem 0;
-    cursor: default; 
+    cursor: default;
 }
 .element-search:hover {
     background-color: #efefef;
 }
 .search-list p {
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -85,12 +87,12 @@ a{
 .search-list img {
     width: auto;
     height: 16px;
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
 }
 .search-btn {
     width: 30px;
     height: 30px;
-    background-color: #CC00F5;
+    background-color: #cc00f5;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border: 1px solid #620075;
@@ -112,7 +114,7 @@ a{
     height: 2px;
     width: 100%;
     border-radius: 2px;
-    transition: all .5s;
+    transition: all 0.5s;
     transform-origin: left;
 }
 .aside-btn:hover div:first-child {
@@ -132,7 +134,7 @@ a{
     flex-flow: row wrap;
     justify-content: space-evenly;
     row-gap: 30px;
-    column-gap: 15px; 
+    column-gap: 15px;
     height: 100%;
     max-width: 1250px;
     margin: auto;
@@ -146,24 +148,24 @@ a{
     border-radius: 1rem;
     color: white;
     position: relative;
-    transition: all .5s;
+    transition: all 0.5s;
 }
 .GIF:hover {
-    transform: scale(.975);
+    transform: scale(0.975);
 }
-.GIF a{
+.GIF a {
     color: white;
 }
 .GIF-image-div a {
     width: 100%;
 }
 .GIF-title-div {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
     width: 100%;
     display: flex;
     margin: auto;
     overflow: hidden;
-    text-overflow: ellipsis;  
+    text-overflow: ellipsis;
 }
 .GIF-title-div a {
     overflow: hidden;
@@ -176,7 +178,9 @@ a{
     overflow: hidden;
     background-color: #4d1159;
 }
-.GIF-user-div, .GIF-user-div > a, .GIF-user-div > div {
+.GIF-user-div,
+.GIF-user-div > a,
+.GIF-user-div > div {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -192,7 +196,7 @@ a{
 }
 .GIF-user-div {
     justify-content: space-between;
-    padding: .5rem;
+    padding: 0.5rem;
 }
 .GIF-user-div {
     justify-content: baseline;
