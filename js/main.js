@@ -82,7 +82,9 @@ const errorGIF = () => {
         <h2>Vaya!, parece que ha ocurrido un error</h2>
         <p>Por favor recarga la pagina o, si es el caso, intenta con una nueva búsqueda</p>
     </article>`;
-    document.querySelector("#main-section").innerHTML = newError;
+    offset <= limit
+        ? (document.querySelector("#main-section").innerHTML = newError)
+        : (document.querySelector("#main-section").innerHTML += newError);
 };
 
 const consumeGIFS = async (url) => {
@@ -113,6 +115,19 @@ const principalFunction = async () => {
     }
 };
 
+let menu = false;
+const menuShowHidden = () => {
+    if(menu === false){
+        menu = true;
+        document.querySelector(".blur-menu").style.visibility = "visible";
+        document.querySelector(".menu").style.visibility = "visible";
+        document.querySelector(".blur-menu").addEventListener("click", menuShowHidden);
+    } else {
+        menu = false;
+        document.querySelector(".menu").style.visibility = "hidden";
+        document.querySelector(".blur-menu").style.visibility = "hidden";
+    }
+};
 const pageLoad = () => {
     searchInput.addEventListener("input", () => {
         document.querySelector("#search-btn").disabled = searchInput.value
@@ -121,16 +136,11 @@ const pageLoad = () => {
     });
     searchInput.addEventListener("focus", () => {
         document.querySelector(".search-list").style.opacity = 100;
-        document.querySelectorAll(".element-search").forEach((element) => {
-            element.addEventListener("click", () => {
-                searchInput.value = element.lastChild.text;
-                newSearch();
-            });
-        });
     });
     searchInput.addEventListener("blur", () => {
         document.querySelector(".search-list").style.opacity = 0;
     });
+    document.querySelector(".aside-btn").addEventListener("click", menuShowHidden);
 
     document
         .querySelector("#form-search")
@@ -138,6 +148,14 @@ const pageLoad = () => {
 
     searchPreview();
     principalFunction();
+
+    document.querySelectorAll(".element-search").forEach((element) => {
+        element.addEventListener("click", () => {
+            console.log(element);
+            searchInput.value = element.lastChild.text;
+            newSearch();
+        });
+    });
 };
 const observer = new IntersectionObserver(inViewPort);
 window.addEventListener("load", pageLoad);

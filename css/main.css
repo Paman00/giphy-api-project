@@ -65,8 +65,8 @@ a {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 0.5rem 0;
+    z-index: 998;
     opacity: 0;
-    z-index: 999;
 }
 .element-search {
     display: flex;
@@ -108,6 +108,7 @@ a {
     border: 0;
     gap: 9.6px;
     cursor: pointer;
+    z-index: 999;
 }
 .aside-btn > div {
     background-color: #fff;
@@ -214,6 +215,91 @@ a {
     opacity: 100;
 }
 
+.blur-menu {
+    visibility: hidden;
+    background-color: rgba(28, 28, 28, 0.66);
+    position: fixed;
+    top: 0;
+    left: 256px;
+    z-index: 997;
+    width: 100%;
+    height: 100%;
+}
+.menu {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 256px;
+    min-height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    transition: all ease-in-out 0.9s;
+    border-left: 1px solid #bbb;
+    text-align: left;
+}
+.menu > div {
+    width: 100%;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem;
+}
+.menu h3 {
+    margin: 1rem 0;
+}
+.menu a {
+    color: #000;
+}
+.menu a:hover,
+h1:hover {
+    color: #682375;
+}
+.menu-hero {
+    height: 40px;
+}
+.menu-giphy a{
+    transform: scale(1.1);
+}
+.menu-attributions ul {
+    padding-left: 1.5rem;
+    text-align: justify;
+}
+.menu-attributions li {
+    padding: .3rem 0;
+}
+.menu > .menu-me {
+    border-bottom: 2px solid #e1e1e1;
+    align-self: flex-end;
+}
+.menu-me h3 {
+    text-align: center;
+}
+
+.redes {
+    margin-top: .5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.red-social {
+    width: 50px;
+}
+.red-social img {
+    border: 1px solid #e1e1e1;
+    border-radius: 50%;
+}
+
 .go-top-btn {
     display: flex;
     justify-content: center;
@@ -226,7 +312,7 @@ a {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 998;
+    z-index: 996;
     cursor: pointer;
 }
 
@@ -236,6 +322,9 @@ a {
     }
     .nav {
         height: 50px;
+    }
+    .menu > div {
+        min-height: 50px;
     }
     .search-form,
     .search-input-list-container,
@@ -267,6 +356,9 @@ a {
         padding-left: 5%;
         padding-right: 5%;
     }
+    .menu > div {
+        min-height: 60px;
+    }
     .GIF:hover {
         transform: scale(1.05);
     }
@@ -278,6 +370,9 @@ a {
     .nav {
         height: 70px;
         padding: 1px 6%;
+    }
+    .menu > div {
+        min-height: 70px;
     }
     .GIFS-container {
         max-width: 1820px;
@@ -311,6 +406,9 @@ a {
     .nav {
         height: 80px;
     }
+    .menu > div {
+        min-height: 80px;
+    }
     .GIFS-container {
         width: 90vw;
         max-width: 100%;
@@ -322,6 +420,9 @@ a {
     }
     .nav {
         height: 100px;
+    }
+    .menu > div {
+        min-height: 70px;
     }
     .search-btn,
     .aside-btn,
