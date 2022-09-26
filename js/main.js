@@ -61,12 +61,12 @@ const newGIFS = (data) => {
                 <div>`;
             if (gif.user.website_url) {
                 newGif += `<a href="${gif.user.website_url}" target="_blank">
-                        <img src="../img/logotipo-web.png" alt="web page">
+                        <img src="img/logotipo-web.png" alt="web page">
                     </a>`;
             }
             if (gif.user.instagram_url) {
                 newGif += `<a href="${gif.user.instagram_url}" target="_blank">
-                        <img src="../img/logotipo-de-instagram.png" alt="instagram">
+                        <img src="img/logotipo-de-instagram.png" alt="instagram">
                     </a>`;
             }
         }

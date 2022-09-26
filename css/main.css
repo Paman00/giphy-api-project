@@ -159,6 +159,7 @@ a {
 }
 .GIF a {
     color: white;
+    overflow: hidden;
 }
 .GIF-image-div a {
     width: 100%;
